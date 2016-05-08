@@ -1,7 +1,13 @@
+author:
+  name: Florian Mann
+  url: https://twitter.com/florianmann
+
 permalink: /:title
 
 sass:
   style: :compressed
+
+google_analytics_id: UA-77441823-1
 
 exclude:
   - README.md

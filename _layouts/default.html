@@ -17,15 +17,17 @@
             {% for p in site_pages %}
               {% if p.title != null %}
                 {% if p.layout == "page" %}
-                  <li>
-                    <a
-                      class="
-                        {% if page.url == p.url %}active{% endif %}
-                      "
-                      href="{{ p.url }}">
-                        {{ p.title }}
-                    </a>
-                  </li>
+                  {% if p.url contains "blog/page" %}{% else %}
+                    <li>
+                      <a
+                        class="
+                          {% if page.url == p.url %}active{% endif %}
+                        "
+                        href="{{ p.url }}">
+                          {{ p.title }}
+                      </a>
+                    </li>
+                  {% endif %}
                 {% endif %}
               {% endif %}
             {% endfor %}

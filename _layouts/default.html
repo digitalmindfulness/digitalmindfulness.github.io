@@ -10,6 +10,27 @@
           <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
           <small>{{ site.tagline }}</small>
         </h3>
+
+        <nav>
+          <ul>
+            {% assign site_pages = site.pages | sort: 'nav_position' %}
+            {% for p in site_pages %}
+              {% if p.title != null %}
+                {% if p.layout == "page" %}
+                  <li>
+                    <a
+                      class="
+                        {% if page.url == p.url %}active{% endif %}
+                      "
+                      href="{{ p.url }}">
+                        {{ p.title }}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
       </header>
 
       <main>
